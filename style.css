@@ -1,0 +1,132 @@
+/* font setup */
+@font-face {
+    font-family: Inter;
+    src: url('./assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+    font-weight: 1 1000;
+    font-style: normal;
+}
+/* css reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+html{
+    color-scheme: dark;
+}
+body {
+    min-height: 100vh;
+    background-color: var(--neutral_off-black);
+}
+img, picture, svg, video{
+    display: block;
+    max-width: 100%;
+}
+/* root variables */
+:root {
+    --primary_green: hsl(75, 94%, 57%);
+    --primary_white: hsl(0, 0%, 100%);
+    --neutral_white: hsl(0, 0%, 20%);
+    --neutral_dark-grey: hsl(0, 0%, 12%);
+    --neutral_off-black: hsl(0, 0%, 8%);
+    --specific_link: hsl(228, 45%, 44%);
+
+    font-size: clamp(12px, calc(12px + (2 * (100vw - 300px) / 75)), 14px); /* this sizes the font down to fit for smallest of screen sizes without media queries */
+    font-family: 'Inter', sans-serif;
+
+    --spacing_mobile: 1.7rem;
+    --spacing_desktop: 2.85rem;
+
+}
+/* utility classes */
+.text_standard {
+    font-size: 1rem;
+}
+.text_large {
+    font-size: 1.7rem;
+}
+.bold {
+    font-weight: 600;
+}
+.extra-bold {
+    font-weight: 700;
+}
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+/* main css */
+main {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    grid-template-columns: 1fr;
+    --gap: var(--spacing_mobile);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing_mobile);
+    background-color: var(--neutral_dark-grey);
+    border-radius: 0.85em;
+}
+.profile-pic {
+    margin: 0 auto;
+}
+.profile-pic img {
+    width: 6.2rem;
+    border-radius: 999px;
+}
+.name-location p {
+    margin-top: .28rem;
+    color: var(--primary_green);
+}
+.links {
+    grid-template-columns: 1fr;
+    --gap: 1.15em;
+}
+.links a {
+    width: 85%;
+    background-color: var(--neutral_white);
+    padding: 0.85em 0;
+    margin: 0 auto;
+    border-radius: 0.57em;
+    color: var(--primary_white);
+    text-decoration: none;
+    transition: 0.15s;
+}
+.links a:hover {
+    background-color: var(--primary_green);
+    color: var(--neutral_off-black);
+}
+@media (min-width:1440px) {
+    .card {
+        padding: var(--spacing_desktop);
+    }
+}
+
+/* footer css */
+body {
+    position: relative;
+}
+.attribution {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0); 
+    font-size: .7rem; 
+    text-align: center;
+    padding: 1em; 
+}
+.attribution a {
+    color: var(--specific_link);
+}
